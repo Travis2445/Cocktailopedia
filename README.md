@@ -8,7 +8,7 @@ An application to help you find your perfect cocktail. The user will be able to 
 * CSS
 * HTML
 
-##Apis used
+## Apis used
 -The Cocktail DB API
 https://rapidapi.com/thecocktaildb/api/the-cocktail-db/
 
