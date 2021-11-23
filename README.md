@@ -8,6 +8,16 @@ An application to help you find your perfect cocktail. The user will be able to 
 * CSS
 * HTML
 
+##Apis used
+-The Cocktail DB API
+https://rapidapi.com/thecocktaildb/api/the-cocktail-db/
+
+-Google authentication API
+https://developers.google.com/identity/sign-in/web/sign-in
+
+-Materialize CSS framwork
+https://materializecss.com
+
 ## Screenshot
 <!-- ![Screen Shot of Page](assets/images/screenshot.png) -->
 
