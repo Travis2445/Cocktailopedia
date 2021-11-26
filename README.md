@@ -15,8 +15,8 @@ https://rapidapi.com/thecocktaildb/api/the-cocktail-db/
 -Google Authentication API
 https://developers.google.com/identity/sign-in/web/sign-in
 
--Materialize CSS Framework
-https://materializecss.com
+-Pure CSS Framework
+https://purecss.io/
 
 ## Screenshot
 <!-- ![Screen Shot of Page](assets/images/screenshot.png) -->
