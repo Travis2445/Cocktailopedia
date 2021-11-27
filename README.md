@@ -1,4 +1,4 @@
-# Web API Group Project
+# Group Project - Cocktailopedia
 
 ## Purpose
 An application to help you find your perfect cocktail. The user will be able to create an account and save their favorites.
@@ -8,15 +8,15 @@ An application to help you find your perfect cocktail. The user will be able to 
 * CSS
 * HTML
 
-## Apis Used
--The Cocktail DB API
+## APIs Used
+* The Cocktail DB API
 https://rapidapi.com/thecocktaildb/api/the-cocktail-db/
 
--Google Authentication API
+* Google Authentication API
 https://developers.google.com/identity/sign-in/web/sign-in
 
--Materialize CSS Framework
-https://materializecss.com
+* Pure CSS Framework
+https://purecss.io/
 
 ## Screenshot
 <!-- ![Screen Shot of Page](assets/images/screenshot.png) -->
