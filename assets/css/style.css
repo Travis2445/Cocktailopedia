@@ -3,7 +3,87 @@
     padding: 0;
 }
 body {
-    background-color: bisque;
+    background-color: #343a40;
 }
-/*the cocktail db key for safe keeping in the css file*/
-/*8c63c426femshe9811d1e49b1267p1f0839jsn4563f7d2b10f*/
+
+.home-menu {
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+    background: #212529;
+    text-align: left;
+}
+
+.home-menu ul {
+    float: right;
+}
+
+.home-menu .pure-menu-heading {
+    color: #adb5bd;
+    font-weight: 800;
+    font-size: 140%;
+}
+
+.home-menu .pure-menu-item {
+    font-size: 120%;
+}
+
+.home-menu a {
+    color: #adb5bd;
+}
+
+.home-menu li a:hover,
+.home-menu li a:focus {
+    background: none;
+    border: none;
+    color: #f8f9fa;
+}
+
+.pure-g {
+    box-sizing: border-box;
+}
+
+.l-box {
+    padding: 5em;
+}
+
+.text-content {
+    position: relative;
+    text-align: center;
+    padding: 4.25em;
+}
+
+.text-content h1 {
+    font-size: 4em;
+    position: absolute;
+    right: 45%;
+    top: 30%;
+    color: #f8f9fa;
+}
+
+.text-content button {
+    position: absolute;
+    right: 50%;
+    top: 48%;
+}
+
+#primary-btn {
+    font-size:3em;
+    color: #343a40;
+    background-color: #adb5bd;
+    border-radius: 30px;
+}
+#primary-btn:hover {
+    background-color: #f8f9fa;
+}
+
+#drink-name-id  {
+    border-bottom: 1px solid #f8f9fa;
+    padding-bottom: .25em;
+}
+
+#primary-img-id {
+    border: 2px solid #f8f9fa;
+    border-radius: 30px;
+    box-shadow: 10px 10px 5px #212529;
+}
