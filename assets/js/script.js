@@ -1,9 +1,13 @@
 ///8c63c426femshe9811d1e49b1267p1f0839jsn4563f7d2b10f
+//api key ^
+
+//global variables for building the page
 var currentCocktail = "";
 var currentCocktailIMG = "";
 
 var mainContainer = document.querySelector("main");
 
+//calling the function to run
 randomCocktail();
 
 function randomCocktail(){
