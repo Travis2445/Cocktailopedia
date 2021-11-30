@@ -45,14 +45,14 @@ mainContainer.setAttribute("style", "height:600px");
 
 //Img creating and appending
 var cocktailImg = document.createElement("img");
-cocktailImg.setAttribute("class", "col s4");
+cocktailImg.setAttribute("id", "drink-img-id");
 cocktailImg.setAttribute("src", currentCocktailIMG);
 mainContainer.appendChild(cocktailImg);
 
 //work in progress
 //But same idea as the image
 var cocktailStepsContainer = document.createElement("div");
-cocktailStepsContainer.setAttribute("class", "col s4");
+cocktailStepsContainer.setAttribute("id", "drink-name-id");
 console.log(currentCocktail);
 var cocktailStepsHeader = document.createElement("h1");
 cocktailStepsHeader.textContent = currentCocktail;
