@@ -43,8 +43,20 @@ body {
     box-sizing: border-box;
 }
 
+.text-btn {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .l-box {
     padding: 5em;
+    width: 80%;
+    margin: auto;
 }
 
 .text-content {
@@ -82,12 +94,6 @@ body {
     padding-bottom: .25em;
 }
 
-#primary-img-id {
-    border: 2px solid #f8f9fa;
-    border-radius: 30px;
-    box-shadow: 10px 10px 5px #212529;
-}
-
 /* Dropdown Button */
 .dropbtn {
     background-color: #212529;
@@ -96,6 +102,8 @@ body {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    border-radius: 30px;
+    font-size: 1em;
 }
 
 /* Dropdown button on hover & focus */
@@ -132,3 +140,29 @@ body {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+.photo-box img {
+    max-width: 100%;
+    height: auto;
+    min-height: 250px;
+    border: 2px solid #f8f9fa;
+    border-radius: 30px;
+    box-shadow: 10px 10px 5px #212529;
+}
+
+.text-box-head {
+    color: #adb5bd;
+    padding-bottom: 0.2em;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 24px;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.text-box-subhead {
+    color: #f8f9fa;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
