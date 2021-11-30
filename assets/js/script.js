@@ -4,14 +4,16 @@
 //global variables for building the page
 var currentCocktail = "";
 var currentCocktailIMG = "";
+var drinkID = "11007";
 
 var mainContainer = document.querySelector("main");
-
+//link has to be made before calling the function
+var fetchLink = "https://the-cocktail-db.p.rapidapi.com/lookup.php?i=" + drinkID;
 //calling the function to run
 randomCocktail();
 
 function randomCocktail(){
-fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
+fetch(fetchLink, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
