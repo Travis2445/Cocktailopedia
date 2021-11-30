@@ -10,13 +10,22 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    
-<script src="./assets/js/script.js"></script>
     <header class="home-menu pure-menu pure-menu-horizontal">
     <a href="#" class="pure-menu-heading">Cocktail Site</a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
-            <a href="#" class="pure-menu-link">Find</a>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn pure-menu-link">Search by Alcohol</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Gin</a>
+                    <a href="#">Vodka</a>
+                    <a href="#">Tequila</a>
+                    <a href="#">Bourbon</a>
+                    <a href="#">Triple Sec</a>
+                    <a href="#">Amaretto</a>
+                    <a href="#">Brandy</a>
+                </div>
+            </div>
         </li>
         <li class="pure-menu-item">
             <a href="#" class="pure-menu-link">Recipe</a>
@@ -40,5 +49,7 @@
     </div>
     </div>
 
+    <script src="./assets/js/dropdown.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
