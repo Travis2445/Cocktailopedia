@@ -69,6 +69,8 @@ landingpageContainer.appendChild(cocktailStepsContainer);
 }
 
 //builds list of drinks based on selected find tab alcohol
+
+//event listner to trigger the building of the page
 var dropdownContainer = document.getElementById("myDropdown");
 dropdownContainer.addEventListener("click", function(event){
 	var element = event.target;
@@ -76,6 +78,7 @@ dropdownContainer.addEventListener("click", function(event){
 		buildcardlist(element.id);
 	}
 })
+//functions for building the list
 function buildcardlist(alcohol){
 	//setting the other screens to none
 	frontpageContainer.setAttribute("style", "display:none");
@@ -92,10 +95,6 @@ fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?i=" + alcohol, {
 .then(response => {
 	//converting it to json 
 	response.json().then(function(data) {
-		//new varibles needed
-
-		// currentCocktail = data.drinks[0].strDrink;
-		// currentCocktailIMG = data.drinks[0].strDrinkThumb;
 		buildcards(data);
 		console.log(data);
 	})
@@ -106,7 +105,7 @@ fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?i=" + alcohol, {
 
 function buildcards(list){
 	
-	//making container for the cards
+	//current attempt to delete the last list of cards
 	if(pagebuildnumber > 0){
 		lastpagebuilt = pagebuildnumber;
 		lastpage = document.getElementById(lastpagebuilt);
@@ -115,6 +114,9 @@ function buildcards(list){
 		lastpage.setAttribute("style", "display:none;");
 	}
 	pagebuildnumber++;
+
+
+	//making container for the cards
 	var cardsContainer = document.createElement("div");
 	cardsContainer.setAttribute("id", pagebuildnumber);
 	console.log(pagebuildnumber);
@@ -130,6 +132,9 @@ function buildcards(list){
 	// 	<h4><b>John Doe</b></h4> 
 	// </div>
 	// </div>
+	
+
+	//creates the cards using the information from the list 
 	for (var i = 0; i < list.drinks.length; i++) {
 		var element = list.drinks[i];
 		var card = document.createElement("div");
