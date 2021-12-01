@@ -185,3 +185,18 @@ body {
 .ismade {
     /*leave empty*/
 }
+
+.recipe-content h6 {
+    color: #adb5bd;
+}
+.recipe-content {
+    margin-top: auto;
+    color: #ddd;
+}
+.recipe-div {
+    padding-top: 2em;
+}
+
+.recipe-div ul {
+    padding: 1em;
+}
