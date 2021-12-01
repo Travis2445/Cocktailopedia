@@ -83,6 +83,7 @@ function buildcardlist(alcohol){
 	//setting the other screens to none
 	frontpageContainer.setAttribute("style", "display:none");
 	landingpageContainer.setAttribute("style", "display:none");
+	drinkslistContainer.setAttribute("style", "display:block");
 
 	//using the ingrediant pressed
 fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?i=" + alcohol, {
@@ -138,6 +139,7 @@ function buildcards(list){
 	for (var i = 0; i < list.drinks.length; i++) {
 		var element = list.drinks[i];
 		var card = document.createElement("div");
+		card.setAttribute("id", element.idDrink);
 		card.setAttribute("class", "card pure-u-1-3");
 		cardsContainer.appendChild(card);
 		var cardimg = document.createElement("img");
@@ -147,6 +149,7 @@ function buildcards(list){
 		card.appendChild(cardimg);
 		var textContainer = document.createElement("div");
 		textContainer.setAttribute("class", "container");
+		textContainer.setAttribute("id", element.idDrink);
 		card.appendChild(textContainer);
 		var cardName = document.createElement("h4");
 		cardName.textContent = element.strDrink;
@@ -159,5 +162,34 @@ function buildcards(list){
 //creating landing page
 drinkslistContainer.addEventListener("click", function(event){
 	var element = event.target;
-	console.log(element.parentNode.parentNode);
+	console.log(element.parentNode);
+	console.log(element.parentNode.id);
+	landingpageid = element.parentNode.id;
+	landingpage(landingpageid);
+
 })
+
+function landingpage(id){
+	frontpageContainer.setAttribute("style", "display:none");
+	drinkslistContainer.setAttribute("style", "display:none");
+	landingpageContainer.setAttribute("style", "display:block");
+
+	fetch("https://the-cocktail-db.p.rapidapi.com/lookup.php?i=" + id, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+		"x-rapidapi-key": "3876f11e8cmsh0c41f0235972ef6p1d5e0ejsnba4aeabf583b"
+	}
+})
+.then(response => {
+	//converting it to json 
+	response.json().then(function(data) {
+		console.log(data);
+	})
+})
+.catch(err => {
+	console.error(err);
+});
+
+
+}
