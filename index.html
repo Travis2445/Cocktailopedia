@@ -11,19 +11,19 @@
 </head>
 <body>
     <header class="home-menu pure-menu pure-menu-horizontal pure-u-1-2 pure-u-md-1">
-    <a href="#" class="pure-menu-heading">Cocktail Site</a>
+    <a href="#"0 class="pure-menu-heading">Cocktail Site</a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
             <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn pure-menu-link">Find</button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="drinks.html">Gin</a>
-                    <a href="drinks.html">Vodka</a>
-                    <a href="drinks.html">Tequila</a>
-                    <a href="drinks.html">Bourbon</a>
-                    <a href="drinks.html">Triple Sec</a>
-                    <a href="drinks.html">Amaretto</a>
-                    <a href="drinks.html">Brandy</a>
+                    <a id="gin" href="#">Gin</a>
+                    <a id="vodka" href="#">Vodka</a>
+                    <a id="tequila" href="#">Tequila</a>
+                    <a id="bourbon" href="#">Bourbon</a>
+                    <a id="triple sec" href="#">Triple Sec</a>
+                    <a id="amaretto" href="#">Amaretto</a>
+                    <a id="brandy" href="#">Brandy</a>
                 </div>
             </div>
         </li>
@@ -32,11 +32,11 @@
         </li>
     </ul>
     </header>
-
+    <main id="frontpage">
     <div class="pure-g text-btn">
         <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                 <img
-                src="https://www.liquor.com/thmb/5e8COyWKwLRzHmZblY_ptkI2yD4=/720x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/gin-fizz-720x720-primary-v3-2c1390963d014e35a01d741df2f9ae77.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
                 alt="cocktail-image"
                 id="frontpageimg"
                 />
@@ -49,7 +49,13 @@
             </div>
         </div>
     </div>
+    </main>
+    <main class="pure-u-1" style="height:fit-content;" id="drinkslist">
 
+    </main>
+    <main id="landingpage">
+
+    </main>
     <script src="./assets/js/dropdown.js"></script>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/frontpage.js"></script>
