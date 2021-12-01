@@ -140,7 +140,7 @@ function buildcards(list){
 		var element = list.drinks[i];
 		var card = document.createElement("div");
 		card.setAttribute("id", element.idDrink);
-		card.setAttribute("class", "card pure-u-1-3");
+		card.setAttribute("class", "pure-u-1-4");
 		cardsContainer.appendChild(card);
 		var cardimg = document.createElement("img");
 		cardimg.setAttribute("style", "width:100%");
@@ -166,7 +166,7 @@ drinkslistContainer.addEventListener("click", function(event){
 	console.log(element.parentNode.id);
 	landingpageid = element.parentNode.id;
 	landingpage(landingpageid);
-
+	
 })
 
 function landingpage(id){
