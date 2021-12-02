@@ -1,5 +1,13 @@
 var frontrandomname = document.getElementById("frontpagename");
 var frontrandomimg = document.getElementById("frontpageimg");
+
+var frontpageContainer = document.getElementById("frontpage");
+var drinkslistContainer = document.getElementById("drinkslist");
+var landingpageContainer = document.getElementById("landingpage");
+
+frontpageContainer.setAttribute("style", "display:block");
+drinkslistContainer.setAttribute("style", "display:none");
+landingpageContainer.setAttribute("style", "display:none");
 function frontpageCocktail(){
 	fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 	"method": "GET",

@@ -140,7 +140,7 @@ function buildcards(list){
 		var element = list.drinks[i];
 		var card = document.createElement("div");
 		card.setAttribute("id", element.idDrink);
-		card.setAttribute("class", "card pure-u-1-3");
+		card.setAttribute("class", "pure-u-1-4");
 		cardsContainer.appendChild(card);
 		var cardimg = document.createElement("img");
 		cardimg.setAttribute("style", "width:100%");
@@ -184,7 +184,8 @@ function landingpage(id){
 .then(response => {
 	//converting it to json 
 	response.json().then(function(data) {
-		console.log(data);
+		buildlandingpage(data.drinks[0]);
+		console.log(data.drinks[0]);
 	})
 })
 .catch(err => {
@@ -193,3 +194,39 @@ function landingpage(id){
 
 
 }
+function buildlandingpage(drink){
+	
+}
+{/* <main id="recipe-container">
+            <div class="pure-g text-btn">
+                <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+                        <img
+                        src="https://www.thecocktaildb.com/images/media/drink/xxyywq1454511117.jpg"
+                        alt="cocktail-image"
+                        id="frontpageimg"
+                        />
+                </div>
+        
+                <div class="text-box pure-u-1 pure-u-md-1-2 pure-u-lg-2-3">
+                    <div class="l-box recipe-content">
+                        <h1 class="text-box-head" id="frontpagename">110 in the shade</h1>
+                        <p class="text-box-subhead">How to Make!</p>
+                        <div class="recipe-div">
+                            <ul class="pure-menu-list">
+                                <li><h6>Ingredients:</h6></li>
+                                <li>Lager: 16 oz</li>
+                                <li>Tequila: 1.5 oz</li>
+                            </ul>
+                            <ul class="pure-menu-list">
+                                <li><h6>Glass Type:</h6></li>
+                                <li>Beer Glass</li>
+                            </ul>
+                            <ul class="pure-menu-list">
+                                <li><h6>Directions:</h6></li>
+                                <li>Drop shooter in glass. Fill with beer</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </main> */}
