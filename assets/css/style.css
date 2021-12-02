@@ -182,6 +182,7 @@ body {
 .container {
     padding: 2px 16px;
     background-color: #f8f9fa;
+    text-align: center;
 }
 
 .ismade {
