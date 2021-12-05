@@ -97,7 +97,6 @@ fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?i=" + alcohol, {
 	//converting it to json 
 	response.json().then(function(data) {
 		buildcards(data);
-		console.log(data);
 	})
 })
 .catch(err => {
@@ -110,7 +109,6 @@ function buildcards(list){
 	if(pagebuildnumber > 0){
 		lastpagebuilt = pagebuildnumber;
 		lastpage = document.getElementById(lastpagebuilt);
-		console.log(lastpage);
 		lastpage.remove();
 		lastpage.setAttribute("style", "display:none;");
 	}
@@ -120,20 +118,9 @@ function buildcards(list){
 	//making container for the cards
 	var cardsContainer = document.createElement("div");
 	cardsContainer.setAttribute("id", pagebuildnumber);
-	console.log(pagebuildnumber);
 	cardsContainer.setAttribute("class", "pure-u-4-5");
 	cardsContainer.setAttribute("style", "diplay:flex; margin-left:10%;");
 	drinkslistContainer.appendChild(cardsContainer);
-
-
-	//w3school card template
-	// <div class="card">
-	// <img src="img_avatar.png" alt="Avatar" style="width:100%">
-	// <div class="container">
-	// 	<h4><b>John Doe</b></h4> 
-	// </div>
-	// </div>
-	
 
 	//creates the cards using the information from the list 
 	for (var i = 0; i < list.drinks.length; i++) {
@@ -162,8 +149,6 @@ function buildcards(list){
 //creating landing page
 drinkslistContainer.addEventListener("click", function(event){
 	var element = event.target;
-	console.log(element.parentNode);
-	console.log(element.parentNode.id);
 	landingpageid = element.parentNode.id;
 	landingpage(landingpageid);
 
@@ -185,7 +170,6 @@ function landingpage(id){
 	//converting it to json 
 	response.json().then(function(data) {
 		buildlandingpage(data.drinks[0]);
-		console.log(data.drinks[0]);
 	})
 })
 .catch(err => {
@@ -195,38 +179,52 @@ function landingpage(id){
 
 }
 function buildlandingpage(drink){
-	
+	console.log(drink);
+	//Changing the img and Name to match the selected drink
+	imgLanding = document.getElementById("landingpageimg");
+	imgLanding.setAttribute("src", drink.strDrinkThumb);
+	nameLanding = document.getElementById("landingpageName");
+	nameLanding.textContent = drink.strDrink;
+	//building an array of useable ingredients as well as the amounts
+	var ingrediantArray = [];
+	var measureArray = [];
+	for (let i = 1; i < 16; i++) {
+		var ingrediantitem = "strIngredient" + i;
+		var itemamount = "strMeasure" + i;
+		if(drink[itemamount] != null){
+			measureArray.push(drink[itemamount])
+		}
+		if(drink[ingrediantitem] != null){
+			ingrediantArray.push(drink[ingrediantitem]);
+		}else{
+			break;
+		}
+	}
+	//puting in the ingredients in a list
+	ingrediantlistLanding = document.getElementById("ingredientslist");
+	for (let i = 0; i < ingrediantArray.length; i++) {
+		prevExist = document.getElementById("ingrediant" + i);
+		if(!prevExist){
+			addIngrediant = document.createElement("li");
+			addIngrediant.setAttribute("id", "ingrediant" + i);
+		}else{
+			addIngrediant = prevExist;
+		}
+		
+		if(measureArray[i] != null){
+			addIngrediant.textContent = ingrediantArray[i] + " " + measureArray[i];
+		}else{
+			addIngrediant.textContent = ingrediantArray[i];
+		}
+		if(!prevExist){
+			ingrediantlistLanding.appendChild(addIngrediant);
+		}
+	}
+	//glass type change
+	glass = document.getElementById("glasstype");
+	glass.textContent = drink.strGlass;
+
+	//change directions
+	drinkDirections = document.getElementById("directions");
+	drinkDirections.textContent = drink.strInstructions;
 }
-{/* <main id="recipe-container">
-            <div class="pure-g text-btn">
-                <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                        <img
-                        src="https://www.thecocktaildb.com/images/media/drink/xxyywq1454511117.jpg"
-                        alt="cocktail-image"
-                        id="frontpageimg"
-                        />
-                </div>
-        
-                <div class="text-box pure-u-1 pure-u-md-1-2 pure-u-lg-2-3">
-                    <div class="l-box recipe-content">
-                        <h1 class="text-box-head" id="frontpagename">110 in the shade</h1>
-                        <p class="text-box-subhead">How to Make!</p>
-                        <div class="recipe-div">
-                            <ul class="pure-menu-list">
-                                <li><h6>Ingredients:</h6></li>
-                                <li>Lager: 16 oz</li>
-                                <li>Tequila: 1.5 oz</li>
-                            </ul>
-                            <ul class="pure-menu-list">
-                                <li><h6>Glass Type:</h6></li>
-                                <li>Beer Glass</li>
-                            </ul>
-                            <ul class="pure-menu-list">
-                                <li><h6>Directions:</h6></li>
-                                <li>Drop shooter in glass. Fill with beer</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </main> */}

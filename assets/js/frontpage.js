@@ -20,7 +20,6 @@ function frontpageCocktail(){
 	response.json().then(function(data){
 		frontrandomname.textContent = data.drinks[0].strDrink;
 		frontrandomimg.setAttribute("src", data.drinks[0].strDrinkThumb);
-		console.log(response);
 	})
 })
 	.catch(err => {
