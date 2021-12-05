@@ -203,3 +203,47 @@ body {
 .recipe-div ul {
     padding: 1em;
 }
+
+.content {
+    padding: 2em 3em 0;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.heading-saved {
+    color: #f8f9fa;
+    padding-bottom: 0.2em;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 24px;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.heading-saved::after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    padding-top: 20px; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid #212529; /* This creates the border. Replace black with whatever color you want. */
+    border-radius: 1px;
+}
+
+.saved-list {
+    text-transform: uppercase;
+    list-style-type: none;
+    font-size: 24px;
+    font-weight: 200;
+    letter-spacing: 0.05em;
+}
+
+.saved-list li {
+    margin: 1em;
+}
+
+.saved-list li a {
+    text-decoration: none;
+    color: #f8f9fa;
+}
