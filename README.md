@@ -1,7 +1,7 @@
 # Group Project - Cocktailopedia
 
 ## Purpose
-An application to help you find your perfect cocktail. The user will be able to create an account and save their favorites.
+An application to help you find your perfect cocktail. The user will be able to search drinks by alcohol type and click the name to see how to make it. There will also be a random drink of the day feature on the main page. The user will be able to save their favorite drinks.
 
 ## Built With
 * JavaScript
