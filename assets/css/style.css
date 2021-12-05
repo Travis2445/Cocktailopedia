@@ -204,6 +204,7 @@ body {
     padding: 1em;
 }
 
+<<<<<<< HEAD
 .content {
     padding: 2em 3em 0;
     margin-left: 25%;
@@ -246,4 +247,14 @@ body {
 .saved-list li a {
     text-decoration: none;
     color: #f8f9fa;
+=======
+#landingpage {
+    display: none;
+}
+#frontpage {
+    display: none;
+}
+#drinkslist {
+    display: none;
+>>>>>>> ffc1bf45c4c1cdecf16f995a0017289493f4777b
 }
