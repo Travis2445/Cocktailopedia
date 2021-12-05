@@ -186,7 +186,7 @@ body {
 }
 
 .ismade {
-    /*leave empty*/
+    opacity: 1;
 }
 
 .recipe-content h6 {

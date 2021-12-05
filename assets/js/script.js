@@ -2,7 +2,7 @@
 //api key ^
 var pagebuildnumber = 0;
 var savedDrinksNumber = 0;
-var savedDrinksArray = [];
+
 var frontpageContainer = document.getElementById("frontpage");
 var drinkslistContainer = document.getElementById("drinkslist");
 var landingpageContainer = document.getElementById("landingpage");
@@ -247,13 +247,41 @@ function buildlandingpage(drink){
 	drinkDirections.textContent = drink.strInstructions;
 }
 
+//getting already saved drinks
+function allStorage(){
+	var values = [],
+		keys = Object.keys(localStorage);
+		i = keys.length;
+	while ( i-- ) {
+		values.push( localStorage.getItem(keys[i]) );
+	}
+	return values;
+}
+
 //saving the drinks
 var savedrink = document.getElementById("landingpageName");
 savedrink.addEventListener("click", function(event){
+	var savedDrinksArray = allStorage();
 	var element = event.target;
 	id = element.getAttribute("drinkid");
 	console.log(id);
 	console.log(element);
-	savedDrinksArray.push(id);
+	if(savedDrinksArray.indexOf(id) == -1){
+		savedDrinksArray.push(id);
+		for (let i = 0; i < savedDrinksArray.length; i++) {
+		localStorage.setItem("savedDrink"+i, savedDrinksArray[i]);
+	}
+	}
+	
 	console.log(savedDrinksArray);
+})
+
+//building the saved drinks page 
+var savedDrinkspage = document.getElementById("savedDrinkspage");
+savedDrinkspage.addEventListener("click", function(event){
+	frontpageContainer.setAttribute("style", "display:none");
+	drinkslistContainer.setAttribute("style", "display:none");
+	landingpageContainer.setAttribute("style", "display:none");
+	saveddrinksContainer.setAttribute("style", "display:block");
+	
 })
