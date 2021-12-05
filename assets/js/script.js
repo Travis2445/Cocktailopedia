@@ -4,6 +4,7 @@ var pagebuildnumber = 0;
 var frontpageContainer = document.getElementById("frontpage");
 var drinkslistContainer = document.getElementById("drinkslist");
 var landingpageContainer = document.getElementById("landingpage");
+var saveddrinksContainer = document.getElementById("savedDrinks");
 
 //building drink landing page
 function buildDrinkpage(){
@@ -54,7 +55,6 @@ cocktailImg.setAttribute("class", "col s4");
 cocktailImg.setAttribute("src", currentCocktailIMG);
 landingpageContainer.appendChild(cocktailImg);
 
-//work in progress
 //But same idea as the image
 var cocktailStepsContainer = document.createElement("div");
 cocktailStepsContainer.setAttribute("class", "col s4");
@@ -146,13 +146,23 @@ function buildcards(list){
 }
 
 
-//creating landing page
+//creating landing page 
+//if a card is selected
 drinkslistContainer.addEventListener("click", function(event){
 	var element = event.target;
 	landingpageid = element.parentNode.id;
 	landingpage(landingpageid);
 
 })
+
+//if the front page name is selected than landing page will also go
+var frontcocktail = document.getElementById("frontpagename");
+frontcocktail.addEventListener("click", function(event){
+	var element = event.target;
+	landingpage(element.id);
+})
+
+//if the frontpage is selected
 
 function landingpage(id){
 	frontpageContainer.setAttribute("style", "display:none");

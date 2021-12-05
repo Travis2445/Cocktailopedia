@@ -200,3 +200,13 @@ body {
 .recipe-div ul {
     padding: 1em;
 }
+
+#landingpage {
+    display: none;
+}
+#frontpage {
+    display: none;
+}
+#drinkslist {
+    display: none;
+}
