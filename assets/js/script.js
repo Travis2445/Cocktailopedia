@@ -1,6 +1,8 @@
 ///8c63c426femshe9811d1e49b1267p1f0839jsn4563f7d2b10f
 //api key ^
 var pagebuildnumber = 0;
+var savedDrinksNumber = 0;
+var savedDrinksArray = [];
 var frontpageContainer = document.getElementById("frontpage");
 var drinkslistContainer = document.getElementById("drinkslist");
 var landingpageContainer = document.getElementById("landingpage");
@@ -159,7 +161,8 @@ drinkslistContainer.addEventListener("click", function(event){
 var frontcocktail = document.getElementById("frontpagename");
 frontcocktail.addEventListener("click", function(event){
 	var element = event.target;
-	landingpage(element.id);
+	id = element.getAttribute("drinkid");
+	landingpage(id);
 })
 
 //if the frontpage is selected
@@ -194,6 +197,7 @@ function buildlandingpage(drink){
 	imgLanding = document.getElementById("landingpageimg");
 	imgLanding.setAttribute("src", drink.strDrinkThumb);
 	nameLanding = document.getElementById("landingpageName");
+	nameLanding.setAttribute("drinkid", drink.idDrink);
 	nameLanding.textContent = drink.strDrink;
 	//building an array of useable ingredients as well as the amounts
 	var ingrediantArray = [];
@@ -238,3 +242,14 @@ function buildlandingpage(drink){
 	drinkDirections = document.getElementById("directions");
 	drinkDirections.textContent = drink.strInstructions;
 }
+
+//saving the drinks
+var savedrink = document.getElementById("landingpageName");
+savedrink.addEventListener("click", function(event){
+	var element = event.target;
+	id = element.getAttribute("drinkid");
+	console.log(id);
+	console.log(element);
+	savedDrinksArray.push(id);
+	console.log(savedDrinksArray);
+})
