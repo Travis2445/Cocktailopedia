@@ -15,6 +15,9 @@ var currentCocktailIMG = "";
 var drinkID = "11007";
 
 frontpageContainer.setAttribute("style", "display:none");
+drinkslistContainer.setAttribute("style", "display:block");
+landingpageContainer.setAttribute("style", "display:none");
+saveddrinksContainer.setAttribute("style", "display:none");
 //link has to be made before calling the function
 var fetchLink = "https://the-cocktail-db.p.rapidapi.com/lookup.php?i=" + drinkID;
 //calling the function to run
@@ -86,7 +89,7 @@ function buildcardlist(alcohol){
 	frontpageContainer.setAttribute("style", "display:none");
 	landingpageContainer.setAttribute("style", "display:none");
 	drinkslistContainer.setAttribute("style", "display:block");
-
+	saveddrinksContainer.setAttribute("style", "display:none");
 	//using the ingrediant pressed
 fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?i=" + alcohol, {
 	"method": "GET",
@@ -171,6 +174,7 @@ function landingpage(id){
 	frontpageContainer.setAttribute("style", "display:none");
 	drinkslistContainer.setAttribute("style", "display:none");
 	landingpageContainer.setAttribute("style", "display:block");
+	saveddrinksContainer.setAttribute("style", "display:none");
 
 	fetch("https://the-cocktail-db.p.rapidapi.com/lookup.php?i=" + id, {
 	"method": "GET",
