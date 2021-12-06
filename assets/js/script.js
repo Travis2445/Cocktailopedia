@@ -1,8 +1,8 @@
 ///8c63c426femshe9811d1e49b1267p1f0839jsn4563f7d2b10f
 //api key ^
 var pagebuildnumber = 0;
-var savedDrinksNumber = 0;
-var savedDrinksArray = [];
+var savepagebuildnumber = 0;
+
 var frontpageContainer = document.getElementById("frontpage");
 var drinkslistContainer = document.getElementById("drinkslist");
 var landingpageContainer = document.getElementById("landingpage");
@@ -15,6 +15,9 @@ var currentCocktailIMG = "";
 var drinkID = "11007";
 
 frontpageContainer.setAttribute("style", "display:none");
+drinkslistContainer.setAttribute("style", "display:block");
+landingpageContainer.setAttribute("style", "display:none");
+saveddrinksContainer.setAttribute("style", "display:none");
 //link has to be made before calling the function
 var fetchLink = "https://the-cocktail-db.p.rapidapi.com/lookup.php?i=" + drinkID;
 //calling the function to run
@@ -86,7 +89,7 @@ function buildcardlist(alcohol){
 	frontpageContainer.setAttribute("style", "display:none");
 	landingpageContainer.setAttribute("style", "display:none");
 	drinkslistContainer.setAttribute("style", "display:block");
-
+	saveddrinksContainer.setAttribute("style", "display:none");
 	//using the ingrediant pressed
 fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?i=" + alcohol, {
 	"method": "GET",
@@ -171,12 +174,13 @@ function landingpage(id){
 	frontpageContainer.setAttribute("style", "display:none");
 	drinkslistContainer.setAttribute("style", "display:none");
 	landingpageContainer.setAttribute("style", "display:block");
+	saveddrinksContainer.setAttribute("style", "display:none");
 
 	fetch("https://the-cocktail-db.p.rapidapi.com/lookup.php?i=" + id, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-		"x-rapidapi-key": "3876f11e8cmsh0c41f0235972ef6p1d5e0ejsnba4aeabf583b"
+		"x-rapidapi-key": "8c63c426femshe9811d1e49b1267p1f0839jsn4563f7d2b10f"
 	}
 })
 .then(response => {
@@ -243,13 +247,69 @@ function buildlandingpage(drink){
 	drinkDirections.textContent = drink.strInstructions;
 }
 
+//getting already saved drinks
+function allStorage(){
+	var values = [],
+		keys = Object.keys(localStorage);
+		i = keys.length;
+	while ( i-- ) {
+		values.push( localStorage.getItem(keys[i]) );
+	}
+	return values;
+}
+
 //saving the drinks
 var savedrink = document.getElementById("landingpageName");
 savedrink.addEventListener("click", function(event){
+	var savedDrinksArray = allStorage();
 	var element = event.target;
 	id = element.getAttribute("drinkid");
 	console.log(id);
 	console.log(element);
-	savedDrinksArray.push(id);
+	if(savedDrinksArray.indexOf(id) == -1){
+		savedDrinksArray.push(id);
+		for (let i = 0; i < savedDrinksArray.length; i++) {
+		localStorage.setItem("savedDrink"+i, savedDrinksArray[i]);
+	}
+	}
+	
 	console.log(savedDrinksArray);
 })
+
+//building the saved drinks page 
+var savedDrinkspage = document.getElementById("savedDrinkspage");
+savedDrinkspage.addEventListener("click", function(event){
+	frontpageContainer.setAttribute("style", "display:none");
+	drinkslistContainer.setAttribute("style", "display:none");
+	landingpageContainer.setAttribute("style", "display:none");
+	saveddrinksContainer.setAttribute("style", "display:block");
+
+	var savedlist = document.getElementById("savedDrinksList");
+	savedArray = allStorage();
+	console.log(savedArray);
+	for (let i = 0; i < savedArray.length; i++) {
+		var id = savedArray[i];
+		console.log(id);
+		saveddrinksSearch(id);
+	}
+	function saveddrinksSearch(id){
+		fetch("https://the-cocktail-db.p.rapidapi.com/lookup.php?i=" + id, {
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+			"x-rapidapi-key": "8c63c426femshe9811d1e49b1267p1f0839jsn4563f7d2b10f"
+		}
+	})
+	.then(response => {
+		response.json().then(function(data) {
+			buildlistSavedDrinks(data);
+		})
+	})
+	.catch(err => {
+		console.error(err);
+	});
+	}
+	function buildlistSavedDrinks(drink){
+		
+	}
+});

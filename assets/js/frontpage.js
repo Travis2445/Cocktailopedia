@@ -8,6 +8,7 @@ var landingpageContainer = document.getElementById("landingpage");
 frontpageContainer.setAttribute("style", "display:block");
 drinkslistContainer.setAttribute("style", "display:none");
 landingpageContainer.setAttribute("style", "display:none");
+saveddrinksContainer.setAttribute("style", "display:none");
 function frontpageCocktail(){
 	fetch("https://the-cocktail-db.p.rapidapi.com/random.php", {
 	"method": "GET",
