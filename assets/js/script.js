@@ -230,6 +230,14 @@ function buildlandingpage(drink){
 			addIngrediant = prevExist;
 		}
 		
+		for (let i = 0; i < measureArray.length; i++) {
+			var currentamount = measureArray[i].split(" ", 2);
+			console.log(currentamount);
+			
+		}
+		console.log(measureArray);
+		console.log(measureArray[i]);
+
 		if(measureArray[i] != null){
 			addIngrediant.textContent = ingrediantArray[i] + " " + measureArray[i];
 		}else{
@@ -278,18 +286,18 @@ savedrink.addEventListener("click", function(event){
 //building the saved drinks page 
 var savedDrinkspage = document.getElementById("savedDrinkspage");
 savedDrinkspage.addEventListener("click", function(event){
+	buildsavedDrinks();
+});
 
+function buildsavedDrinks(){
+	
 	frontpageContainer.setAttribute("style", "display:none");
 	drinkslistContainer.setAttribute("style", "display:none");
 	landingpageContainer.setAttribute("style", "display:none");
 	saveddrinksContainer.setAttribute("style", "display:block");
 	clearBtn.setAttribute("style", "display:block");
 	// Clear the LocalStorage on button click
-	clearBtn.addEventListener("click", function() {
-		localStorage.clear();
-		location.reload();
-		console.log("LOCAL STORAGE CLEARED")
-	});
+	
 
 	
 	removeAllChildNodes(savedlist);
@@ -326,7 +334,7 @@ savedDrinkspage.addEventListener("click", function(event){
 		savedlist.appendChild(drinkLi);
 
 	}
-});
+}
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -344,3 +352,8 @@ savedlist.addEventListener("click", function(event){
 	
 })
 
+clearBtn.addEventListener("click", function() {
+	localStorage.clear();
+	console.log("LOCAL STORAGE CLEARED")
+	buildsavedDrinks();
+});
