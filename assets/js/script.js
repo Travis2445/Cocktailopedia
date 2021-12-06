@@ -279,18 +279,22 @@ savedrink.addEventListener("click", function(event){
 //building the saved drinks page 
 var savedDrinkspage = document.getElementById("savedDrinkspage");
 savedDrinkspage.addEventListener("click", function(event){
+
 	frontpageContainer.setAttribute("style", "display:none");
 	drinkslistContainer.setAttribute("style", "display:none");
 	landingpageContainer.setAttribute("style", "display:none");
 	saveddrinksContainer.setAttribute("style", "display:block");
 
 	var savedlist = document.getElementById("savedDrinksList");
+	removeAllChildNodes(savedlist);
 	savedArray = allStorage();
 	console.log(savedArray);
 	for (let i = 0; i < savedArray.length; i++) {
 		var id = savedArray[i];
 		console.log(id);
-		saveddrinksSearch(id);
+		if(id !== null){
+			saveddrinksSearch(id);
+		}
 	}
 	function saveddrinksSearch(id){
 		fetch("https://the-cocktail-db.p.rapidapi.com/lookup.php?i=" + id, {
@@ -302,7 +306,7 @@ savedDrinkspage.addEventListener("click", function(event){
 	})
 	.then(response => {
 		response.json().then(function(data) {
-			buildlistSavedDrinks(data);
+			buildlistSavedDrinks(data.drinks[0]);
 		})
 	})
 	.catch(err => {
@@ -310,6 +314,14 @@ savedDrinkspage.addEventListener("click", function(event){
 	});
 	}
 	function buildlistSavedDrinks(drink){
-		
+		drinkLi = document.createElement("li");
+		drinkLi.textContent = drink.strDrink;
+		savedlist.appendChild(drinkLi);
+
 	}
 });
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
