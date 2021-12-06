@@ -13,9 +13,6 @@ An application to help you find your perfect cocktail. The user will be able to 
 * The Cocktail DB API
 https://rapidapi.com/thecocktaildb/api/the-cocktail-db/
 
-* Google Authentication API
-https://developers.google.com/identity/sign-in/web/sign-in
-
 * Pure CSS Framework
 https://purecss.io/
 
