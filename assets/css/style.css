@@ -225,6 +225,11 @@ body {
     text-align: center;
 }
 
+#clear-btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .heading-saved::after {
     content: ""; /* This is necessary for the pseudo element to work. */ 
     display: block; /* This will put the pseudo element on its own line. */

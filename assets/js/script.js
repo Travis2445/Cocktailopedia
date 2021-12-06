@@ -7,6 +7,7 @@ var frontpageContainer = document.getElementById("frontpage");
 var drinkslistContainer = document.getElementById("drinkslist");
 var landingpageContainer = document.getElementById("landingpage");
 var saveddrinksContainer = document.getElementById("savedDrinks");
+var clearBtn = document.getElementById("clear-btn");
 
 //building drink landing page
 function buildDrinkpage(){
@@ -282,6 +283,13 @@ savedDrinkspage.addEventListener("click", function(event){
 	drinkslistContainer.setAttribute("style", "display:none");
 	landingpageContainer.setAttribute("style", "display:none");
 	saveddrinksContainer.setAttribute("style", "display:block");
+	clearBtn.setAttribute("style", "display:block");
+	// Clear the LocalStorage on button click
+	clearBtn.addEventListener("click", function() {
+		localStorage.clear();
+		location.reload();
+		console.log("LOCAL STORAGE CLEARED")
+	});
 
 	
 	removeAllChildNodes(savedlist);
