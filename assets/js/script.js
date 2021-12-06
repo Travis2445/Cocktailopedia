@@ -3,6 +3,8 @@
 var pagebuildnumber = 0;
 var savepagebuildnumber = 0;
 
+var metric = false;
+
 var frontpageContainer = document.getElementById("frontpage");
 var drinkslistContainer = document.getElementById("drinkslist");
 var landingpageContainer = document.getElementById("landingpage");
@@ -229,9 +231,35 @@ function buildlandingpage(drink){
 		}else{
 			addIngrediant = prevExist;
 		}
-		
+	
+		for (let i = 0; i < measureArray.length; i++) {
+			var currentamount = measureArray[i].split(" ", 2);
+		}
+		console.log(metric);
+		if (metric === false){
+				if (currentamount[1] == "oz"){
+					fetch("https://unit-converter2.p.rapidapi.com/Convert/Volume?from=UsOunce&to=Milliliter&value=" + currentamount[0], {
+						"method": "GET",
+						"headers": {
+							"x-rapidapi-host": "unit-converter2.p.rapidapi.com",
+							"x-rapidapi-key": "3876f11e8cmsh0c41f0235972ef6p1d5e0ejsnba4aeabf583b"
+						}
+					})
+					.then(response => {
+						response.json().then(function(data) {
+							console.log(data);
+							console.log(data.result);
+							currentamount[0] = data.result;
+						})
+					})
+					.catch(err => {
+						console.error(err);
+					});
+				}
+			}
+		console.log(currentamount);
 		if(measureArray[i] != null){
-			addIngrediant.textContent = ingrediantArray[i] + " " + measureArray[i];
+			addIngrediant.textContent = ingrediantArray[i] + " " + currentamount[0] + " " + currentamount[1];
 		}else{
 			addIngrediant.textContent = ingrediantArray[i];
 		}
@@ -278,18 +306,18 @@ savedrink.addEventListener("click", function(event){
 //building the saved drinks page 
 var savedDrinkspage = document.getElementById("savedDrinkspage");
 savedDrinkspage.addEventListener("click", function(event){
+	buildsavedDrinks();
+});
 
+function buildsavedDrinks(){
+	
 	frontpageContainer.setAttribute("style", "display:none");
 	drinkslistContainer.setAttribute("style", "display:none");
 	landingpageContainer.setAttribute("style", "display:none");
 	saveddrinksContainer.setAttribute("style", "display:block");
 	clearBtn.setAttribute("style", "display:block");
 	// Clear the LocalStorage on button click
-	clearBtn.addEventListener("click", function() {
-		localStorage.clear();
-		location.reload();
-		console.log("LOCAL STORAGE CLEARED")
-	});
+	
 
 	
 	removeAllChildNodes(savedlist);
@@ -326,7 +354,7 @@ savedDrinkspage.addEventListener("click", function(event){
 		savedlist.appendChild(drinkLi);
 
 	}
-});
+}
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -344,3 +372,8 @@ savedlist.addEventListener("click", function(event){
 	
 })
 
+clearBtn.addEventListener("click", function() {
+	localStorage.clear();
+	console.log("LOCAL STORAGE CLEARED")
+	buildsavedDrinks();
+});
