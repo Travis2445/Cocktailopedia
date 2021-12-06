@@ -265,17 +265,15 @@ savedrink.addEventListener("click", function(event){
 	var element = event.target;
 	id = element.getAttribute("drinkid");
 	console.log(id);
-	console.log(element);
 	if(savedDrinksArray.indexOf(id) == -1){
 		savedDrinksArray.push(id);
 		for (let i = 0; i < savedDrinksArray.length; i++) {
 		localStorage.setItem("savedDrink"+i, savedDrinksArray[i]);
-	}
+		}
 	}
 	
-	console.log(savedDrinksArray);
-})
-
+	
+});
 //building the saved drinks page 
 var savedDrinkspage = document.getElementById("savedDrinkspage");
 savedDrinkspage.addEventListener("click", function(event){
@@ -291,7 +289,6 @@ savedDrinkspage.addEventListener("click", function(event){
 	console.log(savedArray);
 	for (let i = 0; i < savedArray.length; i++) {
 		var id = savedArray[i];
-		console.log(id);
 		if(id !== null){
 			saveddrinksSearch(id);
 		}
