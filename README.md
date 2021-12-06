@@ -23,7 +23,7 @@ https://purecss.io/
 https://rapidapi.com/JupiterSwears/api/unit-converter2/
 
 ## Screenshot
-<img width="954" alt="cocktailopedia" src="https://user-images.githubusercontent.com/91853630/144767301-63d9d2d7-eed9-4a84-8f0b-bbdc4a4058a3.png">
+<img width="954" alt="cocktailopedia" src="https://gyazo.com/c97a467024e2b785fcd7d199f9b00730">
 
 ## Website
 https://travis2445.github.io/web-api-group-project/
