@@ -285,7 +285,7 @@ savedDrinkspage.addEventListener("click", function(event){
 	landingpageContainer.setAttribute("style", "display:none");
 	saveddrinksContainer.setAttribute("style", "display:block");
 
-	var savedlist = document.getElementById("savedDrinksList");
+	
 	removeAllChildNodes(savedlist);
 	savedArray = allStorage();
 	console.log(savedArray);
@@ -315,6 +315,8 @@ savedDrinkspage.addEventListener("click", function(event){
 	}
 	function buildlistSavedDrinks(drink){
 		drinkLi = document.createElement("li");
+		drinkLi.setAttribute("id", "savedDrink");
+		drinkLi.setAttribute("drinkid", drink.idDrink);
 		drinkLi.textContent = drink.strDrink;
 		savedlist.appendChild(drinkLi);
 
@@ -325,3 +327,15 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
+//building a landing page after clicked from saved menu
+var savedlist = document.getElementById("savedDrinksList");
+savedlist.addEventListener("click", function(event){
+	var element = event.target;
+	console.log(element);
+	if(element.id == "savedDrink"){
+		id = element.getAttribute("drinkid");
+		landingpage(id);
+	}
+	
+})
+
