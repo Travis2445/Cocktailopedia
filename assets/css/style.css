@@ -286,6 +286,11 @@ body {
     background-color: var(--orange);
 }
 
+.unit-conversion:active {
+    color:var(--white);
+    background-color: var(--blue);
+}
+
 .drink-list-style {
     margin: .25em;
     position: relative;
@@ -311,4 +316,8 @@ body {
 .pure-button {
     background-color: var(--orange);
     color: var(--white);
+}
+
+#savedDrink:hover {
+    cursor: pointer;
 }
