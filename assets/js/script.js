@@ -135,7 +135,7 @@ function buildcards(list){
 		var element = list.drinks[i];
 		var card = document.createElement("div");
 		card.setAttribute("id", element.idDrink);
-		card.setAttribute("class", "pure-u-1-4");
+		card.setAttribute("class", "pure-u-1-5 drink-list-style");
 		cardsContainer.appendChild(card);
 		var cardimg = document.createElement("img");
 		cardimg.setAttribute("style", "width:100%");
@@ -143,7 +143,7 @@ function buildcards(list){
 		cardimg.setAttribute("src", element.strDrinkThumb);
 		card.appendChild(cardimg);
 		var textContainer = document.createElement("div");
-		textContainer.setAttribute("class", "container");
+		textContainer.setAttribute("class", "container drink-name-box");
 		textContainer.setAttribute("id", element.idDrink);
 		card.appendChild(textContainer);
 		var cardName = document.createElement("h4");
