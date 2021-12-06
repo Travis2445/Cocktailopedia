@@ -160,6 +160,10 @@ body {
     border-bottom: 1px solid #f8f9fa;
 }
 
+.text-box-head:hover {
+    cursor: pointer;
+}
+
 .text-box-subhead {
     color: #f8f9fa;
     font-weight: normal;
@@ -241,6 +245,7 @@ body {
 
 .saved-list li {
     margin: 1em;
+    color: #f8f9fa;
 }
 
 .saved-list li a {
